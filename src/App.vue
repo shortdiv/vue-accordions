@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <StandardAccordion :items="items" />
+    <div class="wrapper">
+      <div>
+        <strong>Standard</strong>
+        <StandardAccordion :items="items" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -35,3 +40,20 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+#app {
+  margin: 0;
+  height: 100%;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 200;
+}
+.wrapper {
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 350px;
+  width: 500px;
+  padding: 20px;
+  font-size: 24px;
+}
+</style>

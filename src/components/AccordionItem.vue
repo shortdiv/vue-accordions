@@ -7,8 +7,8 @@
 <style lang="scss" scoped>
 .accordion-button {
   display: grid;
-  gridtemplate: auto auto;
-  gridgap: 4;
-  gridautoflow: row;
+  grid-template: auto auto;
+  grid-gap: 4px;
+  grid-auto-flow: row;
 }
 </style>

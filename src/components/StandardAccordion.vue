@@ -1,18 +1,18 @@
 <template>
     <Accordion>
       <template slot-scope="{ handleItemClick, openIndices }">
-      <AccordionItem v-for="(item, index) in items" :key="item.title">
-        <AccordionButton
-          :isOpen="isOpen(openIndices, index)"
-          :handleItemClick="handleItemClick"
-          @on-click="handleItemClick()"
-        >
-        {{ item.title }}
-          <span>{{ isOpen(openIndices, index) ? '👇' : '👉'}}</span>
-        </AccordionButton>
-        <AccordionContents :isOpen="isOpen(openIndices, index)">
-          {{item.contents}}
-        </AccordionContents>
+        <AccordionItem v-for="(item, index) in items" :key="item.title">
+          <AccordionButton
+            :isOpen="isOpen(openIndices, index)"
+            :handleItemClick="handleItemClick"
+            @on-click="handleItemClick(index)"
+          >
+          {{ item.title }}
+            <span>{{ isOpen(openIndices, index) ? '👇' : '👉'}}</span>
+          </AccordionButton>
+          <AccordionContents :isOpen="isOpen(openIndices, index)">
+            {{item.contents}}
+          </AccordionContents>
       </AccordionItem>
       </template>
     </Accordion>
@@ -43,3 +43,6 @@ export default {
   mounted() {}
 };
 </script>
+
+<style lang="scss" scoped>
+</style>

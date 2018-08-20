@@ -16,8 +16,17 @@ export default {
     };
   },
   methods: {
-    handleItemClick() {
-      console.log("hello");
+    handleItemClick(idx) {
+      const closing = this.openIndexes.includes(idx);
+      this.openIndexes = closing
+        ? this.openIndexes.filter(i => i !== idx)
+        : [...this.openIndexes, idx];
+      // return {
+      //   type: closing ? 'closing' : 'opening',
+      //   openIndexes: closing
+      //   ? this.openIndexes.filter(i => i !== idx)
+      //   : [...this.openIndexes, idx]
+      // }
     }
   }
   // render (h) {
@@ -35,3 +44,6 @@ export default {
   // }
 };
 </script>
+
+<style lang="scss" scoped>
+</style>
