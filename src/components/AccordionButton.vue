@@ -16,7 +16,7 @@ export default {
   },
   mounted() {
     this.$refs.accordionButton.onclick = () => {
-      this.handleItemClick();
+      this.$emit("on-click");
     };
   }
 };
