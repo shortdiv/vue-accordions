@@ -9,6 +9,10 @@
         <strong>Above</strong>
         <AboveAccordion :items="items"></AboveAccordion>
       </div>
+      <div>
+        <strong>Left</strong>
+        <LeftAccordion :items="items"></LeftAccordion>
+      </div>
     </div>
   </div>
 </template>
@@ -16,12 +20,14 @@
 <script>
 import StandardAccordion from "./components/StandardAccordion";
 import AboveAccordion from "./components/AboveAccordion.vue";
+import LeftAccordion from "./components/LeftAccordion.vue";
 
 export default {
   name: "App",
   components: {
     StandardAccordion,
-    AboveAccordion
+    AboveAccordion,
+    LeftAccordion
   },
   data() {
     return {
