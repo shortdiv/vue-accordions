@@ -13,6 +13,10 @@
         <strong>Left</strong>
         <LeftAccordion :items="items"></LeftAccordion>
       </div>
+      <div>
+        <strong>Right</strong>
+        <RightAccordion :items="items"></RightAccordion>
+      </div>
     </div>
   </div>
 </template>
@@ -21,13 +25,15 @@
 import StandardAccordion from "./components/StandardAccordion";
 import AboveAccordion from "./components/AboveAccordion.vue";
 import LeftAccordion from "./components/LeftAccordion.vue";
+import RightAccordion from "./components/RightAccordion.vue";
 
 export default {
   name: "App",
   components: {
     StandardAccordion,
     AboveAccordion,
-    LeftAccordion
+    LeftAccordion,
+    RightAccordion
   },
   data() {
     return {
