@@ -5,17 +5,23 @@
         <strong>Standard</strong>
         <StandardAccordion :items="items" />
       </div>
+      <div>
+        <strong>Above</strong>
+        <AboveAccordion :items="items"></AboveAccordion>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import StandardAccordion from "./components/StandardAccordion";
+import AboveAccordion from "./components/AboveAccordion.vue";
 
 export default {
   name: "App",
   components: {
-    StandardAccordion
+    StandardAccordion,
+    AboveAccordion
   },
   data() {
     return {
