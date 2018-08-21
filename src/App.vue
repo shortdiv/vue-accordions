@@ -23,6 +23,12 @@
           :items="items"
         ></SingleAccordion>
       </div>
+      <div>
+        <strong>Prevent Close</strong>
+        <PreventCloseAccordion
+          :items="items"
+        ></PreventCloseAccordion>
+      </div>
     </div>
   </div>
 </template>
@@ -33,6 +39,7 @@ import AboveAccordion from "./components/AboveAccordion.vue";
 import LeftAccordion from "./components/LeftAccordion.vue";
 import RightAccordion from "./components/RightAccordion.vue";
 import SingleAccordion from "./components/SingleAccordion.vue";
+import PreventCloseAccordion from "./components/PreventCloseAccordion.vue";
 
 export default {
   name: "App",
@@ -41,7 +48,8 @@ export default {
     AboveAccordion,
     LeftAccordion,
     RightAccordion,
-    SingleAccordion
+    SingleAccordion,
+    PreventCloseAccordion
   },
   data() {
     return {

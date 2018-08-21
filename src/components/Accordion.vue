@@ -32,7 +32,7 @@ export default {
       let obj;
       if (typeof this.stateReducer === "function") {
         obj = this.openIndexAndType(idx);
-        obj = this.stateReducer(obj);
+        obj = this.stateReducer(this.openIndexes, obj);
       } else {
         obj = this.openIndexAndType(idx);
       }
