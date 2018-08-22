@@ -1,27 +1,27 @@
 <template>
-    <Accordion>
-      <template slot-scope="{ handleItemClick, openIndices }">
-        <AccordionItem
-          :style="{gridAutoFlow: 'column'}"
-          v-for="(item, index) in items" :key="item.title">
-          <AccordionButton
-            :style="{textAlign: 'left', minWidth: '80px'}"
-            :isOpen="isOpen(openIndices, index)"
-            :handleItemClick="handleItemClick"
-            @on-click="handleItemClick(index)"
-          >
-          {{ item.title }}
-            <span>{{ isOpen(openIndices, index) ? '👉' : '👈' }}</span>
-          </AccordionButton>
-          <AccordionContents
-            :style="{overflowY: 'hidden', textAlign: 'justify'}"
-            :isOpen="isOpen(openIndices, index)"
-          >
-            {{item.contents}}
-          </AccordionContents>
-      </AccordionItem>
-      </template>
-    </Accordion>
+  <Accordion>
+    <template slot-scope="{ handleItemClick, openIndices, isOpen }">
+      <AccordionItem
+        :style="{ gridAutoFlow: 'column' }"
+        v-for="(item, index) in items" :key="item.title">
+        <AccordionButton
+          :style="{ textAlign: 'left', minWidth: '80px' }"
+          :isOpen="isOpen(openIndices, index)"
+          :handleItemClick="handleItemClick"
+          @on-click="handleItemClick(index)"
+        >
+        {{ item.title }}
+          <span>{{ isOpen(openIndices, index) ? '👉' : '👈' }}</span>
+        </AccordionButton>
+        <AccordionContents
+          :style="{overflowY: 'hidden', textAlign: 'justify'}"
+          :isOpen="isOpen(openIndices, index)"
+        >
+          {{item.contents}}
+        </AccordionContents>
+    </AccordionItem>
+    </template>
+  </Accordion>
 </template>
 
 <script>
@@ -40,11 +40,6 @@ export default {
   },
   props: {
     items: { type: Array }
-  },
-  methods: {
-    isOpen(openIndices, index) {
-      return openIndices.includes(index);
-    }
   }
 };
 </script>
