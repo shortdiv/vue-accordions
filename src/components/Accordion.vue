@@ -3,6 +3,7 @@
     <slot 
       :handleItemClick="handleItemClick"
       :openIndices="openIndexes"
+      :isOpen="isOpen"
     />
   </div>
 </template>
@@ -19,6 +20,9 @@ export default {
     };
   },
   methods: {
+    isOpen(openIndices, index) {
+      return openIndices.includes(index);
+    },
     openIndexAndType(idx) {
       const closing = this.openIndexes.includes(idx);
       return {
