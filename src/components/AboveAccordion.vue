@@ -1,14 +1,18 @@
 <template>
   <Accordion>
-    <template slot-scope="{ handleItemClick, openIndices }">
+    <template slot-scope="{ handleItemClick, openIndices, isOpen }">
       <AccordionItem v-for="(item, index) in items" :key="item.title">
-        <AccordionContents :isOpen="isOpen(openIndices, index)">
+        <AccordionContents
+          :style="{ overflowY: 'hidden', textAlign: 'justify' }"
+          :isOpen="isOpen(openIndices, index)"
+        >
           {{item.contents}}
         </AccordionContents>
         <AccordionButton
-            :isOpen="isOpen(openIndices, index)"
-            :handleItemClick="handleItemClick"
-            @on-click="handleItemClick(index)"
+          :style="{ textAlign: 'left', minWidth: 80 }"
+          :isOpen="isOpen(openIndices, index)"
+          :handleItemClick="handleItemClick"
+          @on-click="handleItemClick(index)"
         >
           {{ item.title }}
           <span>{{ isOpen(openIndices, index) ? '👆' : '👉'}}</span>
@@ -34,11 +38,6 @@ export default {
   },
   props: {
     items: { type: Array }
-  },
-  methods: {
-    isOpen(openIndices, index) {
-      return openIndices.includes(index);
-    }
   }
 };
 </script>

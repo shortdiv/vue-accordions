@@ -1,0 +1,8 @@
+.slide-up-enter-active, .slide-up-leave-active {
+  transition: max-height .8s cubic-bezier(0, 0.5, 0.5, 1.0);
+}
+
+.slide-up-enter, .slide-up-leave-to {
+  opacity: 0 !important;
+  max-height: 0 !important;
+}
