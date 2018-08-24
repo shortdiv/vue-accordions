@@ -1,8 +1,27 @@
-function singleOpen(changes) {
+function singleOpen(state, changes) {
   if (changes.type === "opening") {
-    return { openIndexes: changes.openIndexes.slice(-1) };
+    return { ...changes, openIndexes: changes.openIndexes.slice(-1) };
   }
   return changes;
 }
 
-export { singleOpen };
+function preventClose(state, changes) {
+  if (changes.type === "closing" && state.openIndexes.length < 2) {
+    return { ...changes, openIndexes: state.openIndexes };
+  }
+  return changes;
+}
+
+function combineReducers(...reducers) {
+  return (state, changes) => {
+    for (let reducer of reducers) {
+      const result = reducer(state, changes);
+      if (result !== changes) {
+        return result;
+      }
+    }
+    return changes;
+  };
+}
+
+export { singleOpen, preventClose, combineReducers };

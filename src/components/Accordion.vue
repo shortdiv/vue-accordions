@@ -33,7 +33,8 @@ export default {
       };
       this.openIndexes =
         typeof this.stateReducer === "function"
-          ? this.stateReducer(allChanges).openIndexes
+          ? this.stateReducer({ openIndexes: this.openIndexes }, allChanges)
+              .openIndexes
           : allChanges.openIndexes;
     }
   }

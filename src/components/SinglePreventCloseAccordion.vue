@@ -1,6 +1,6 @@
 <template>
   <Accordion
-    :stateReducer="preventClose"
+    :stateReducer="this.combineReducers(singleOpen, preventClose)"
   >
     <template slot-scope="{ handleItemClick, openIndices, isOpen }">
       <AccordionItem
@@ -30,10 +30,10 @@ import Accordion from "./Accordion";
 import AccordionItem from "./AccordionItem";
 import AccordionButton from "./AccordionButton";
 import AccordionContents from "./AccordionContents";
-import { preventClose } from "../utils/reducers";
+import { singleOpen, preventClose, combineReducers } from "../utils/reducers";
 
 export default {
-  name: "PreventCloseAccordion",
+  name: "SinglePreventCloseAccordion",
   components: {
     Accordion,
     AccordionItem,
@@ -45,11 +45,15 @@ export default {
   },
   data() {
     return {
-      preventClose: null
+      singleOpen: () => {},
+      preventClose: () => {},
+      combineReducers: () => {}
     };
   },
   mounted() {
+    this.singleOpen = singleOpen;
     this.preventClose = preventClose;
+    this.combineReducers = combineReducers;
   }
 };
 </script>
