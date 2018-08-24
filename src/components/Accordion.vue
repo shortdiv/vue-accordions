@@ -23,24 +23,18 @@ export default {
     isOpen(openIndices, index) {
       return openIndices.includes(index);
     },
-    openIndexAndType(idx) {
+    handleItemClick(idx) {
       const closing = this.openIndexes.includes(idx);
-      return {
+      const allChanges = {
         type: closing ? "closing" : "opening",
         openIndexes: closing
           ? this.openIndexes.filter(i => i !== idx)
           : [...this.openIndexes, idx]
       };
-    },
-    handleItemClick(idx) {
-      let obj;
-      if (typeof this.stateReducer === "function") {
-        obj = this.openIndexAndType(idx);
-        obj = this.stateReducer(this.openIndexes, obj);
-      } else {
-        obj = this.openIndexAndType(idx);
-      }
-      this.openIndexes = obj.openIndexes;
+      this.openIndexes =
+        typeof this.stateReducer === "function"
+          ? this.stateReducer(allChanges).openIndexes
+          : allChanges.openIndexes;
     }
   }
 };

@@ -1,8 +1,7 @@
 <template>
     <Accordion
-      :stateReducer="singleOpen"
-    >
-      <template slot-scope="{ handleItemClick, openIndices }">
+      :stateReducer="singleOpenMethod">
+      <template slot-scope="{ handleItemClick, openIndices, isOpen }">
         <AccordionItem
           v-for="(item, index) in items" :key="item.title">
           <AccordionButton
@@ -30,6 +29,7 @@ import Accordion from "./Accordion";
 import AccordionItem from "./AccordionItem";
 import AccordionButton from "./AccordionButton";
 import AccordionContents from "./AccordionContents";
+import { singleOpen } from "../utils/reducers";
 
 export default {
   name: "SingleAccordion",
@@ -42,17 +42,13 @@ export default {
   props: {
     items: { type: Array }
   },
-  methods: {
-    isOpen(openIndices, index) {
-      return openIndices.includes(index);
-    },
-    singleOpen(changes) {
-      debugger;
-      if (changes.type === "opening") {
-        return { openIndexes: changes.openIndexes.slice(-1) };
-      }
-      return changes;
-    }
+  data() {
+    return {
+      singleOpenMethod: null
+    };
+  },
+  mounted() {
+    this.singleOpenMethod = singleOpen;
   }
 };
 </script>
