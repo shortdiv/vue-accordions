@@ -35,6 +35,12 @@
           :items="items"
         ></SinglePreventCloseAccordion>
       </div>
+      <div>
+        <strong>Standard Tabs</strong>
+        <StandardTabs
+          :items="items"
+        ></StandardTabs>
+      </div>
     </div>
   </div>
 </template>
@@ -47,6 +53,7 @@ import RightAccordion from "./components/RightAccordion.vue";
 import SingleAccordion from "./components/SingleAccordion.vue";
 import PreventCloseAccordion from "./components/PreventCloseAccordion.vue";
 import SinglePreventCloseAccordion from "./components/SinglePreventCloseAccordion.vue";
+import StandardTabs from "./components/StandardTabs.vue";
 
 export default {
   name: "App",
@@ -57,7 +64,8 @@ export default {
     RightAccordion,
     SingleAccordion,
     PreventCloseAccordion,
-    SinglePreventCloseAccordion
+    SinglePreventCloseAccordion,
+    StandardTabs
   },
   data() {
     return {
