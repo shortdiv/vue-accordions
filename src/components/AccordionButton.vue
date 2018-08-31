@@ -1,7 +1,7 @@
 <template>
   <transition name="slide-drawer">
     <button
-      :class="{ 'open-style' : isOpen }"
+      :class="{ 'open-style' : isOpen, 'dark': theme === 'dark' }"
       ref="accordionButton"
     >
       <slot />
@@ -16,6 +16,7 @@ export default {
     isOpen: { type: Boolean },
     handleItemClick: { type: Function }
   },
+  inject: ["theme"],
   mounted() {
     this.$refs.accordionButton.onclick = () => {
       this.$emit("on-click");
@@ -35,6 +36,9 @@ button {
   &:focus {
     outline: none;
     background-color: #c9c9c9;
+  }
+  &.dark {
+    background-color: #444444;
   }
 }
 .open-style {

@@ -1,53 +1,57 @@
 <template>
   <div id="app">
-    <div class="wrapper">
-      <div>
-        <strong>Standard</strong>
-        <StandardAccordion :items="items" />
-      </div>
-      <div>
-        <strong>Above</strong>
-        <AboveAccordion :items="items"></AboveAccordion>
-      </div>
-      <div>
-        <strong>Left</strong>
-        <LeftAccordion :items="items"></LeftAccordion>
-      </div>
-      <div>
-        <strong>Right</strong>
-        <RightAccordion :items="items"></RightAccordion>
-      </div>
-      <div>
-        <strong>Single</strong>
-        <SingleAccordion
-          :items="items"
-        ></SingleAccordion>
-      </div>
-      <div>
-        <strong>Prevent Close</strong>
-        <PreventCloseAccordion
-          :items="items"
-        ></PreventCloseAccordion>
-      </div>
-      <div>
-        <strong>Single Prevent Close</strong>
-        <SinglePreventCloseAccordion
-          :items="items"
-        ></SinglePreventCloseAccordion>
-      </div>
-      <div>
-        <strong>Standard Tabs</strong>
-        <StandardTabs
-          :items="items"
-        ></StandardTabs>
-      </div>
-      <div>
-        <strong>Above Tabs</strong>
-        <AboveTabs
-          :items="items"
-        ></AboveTabs>
-      </div>
-    </div>
+    <ThemeProvider theme="dark">
+      <template slot-scope="{}">
+        <div class="wrapper">
+          <div>
+            <strong>Standard</strong>
+            <StandardAccordion :items="items" />
+          </div>
+          <div>
+            <strong>Above</strong>
+            <AboveAccordion :items="items"></AboveAccordion>
+          </div>
+          <div>
+            <strong>Left</strong>
+            <LeftAccordion :items="items"></LeftAccordion>
+          </div>
+          <div>
+            <strong>Right</strong>
+            <RightAccordion :items="items"></RightAccordion>
+          </div>
+          <div>
+            <strong>Single</strong>
+            <SingleAccordion
+              :items="items"
+            ></SingleAccordion>
+          </div>
+          <div>
+            <strong>Prevent Close</strong>
+            <PreventCloseAccordion
+              :items="items"
+            ></PreventCloseAccordion>
+          </div>
+          <div>
+            <strong>Single Prevent Close</strong>
+            <SinglePreventCloseAccordion
+              :items="items"
+            ></SinglePreventCloseAccordion>
+          </div>
+          <div>
+            <strong>Standard Tabs</strong>
+            <StandardTabs
+              :items="items"
+            ></StandardTabs>
+          </div>
+          <div>
+            <strong>Above Tabs</strong>
+            <AboveTabs
+              :items="items"
+            ></AboveTabs>
+          </div>
+        </div>
+      </template>
+    </ThemeProvider>
   </div>
 </template>
 
@@ -62,6 +66,8 @@ import SinglePreventCloseAccordion from "./components/SinglePreventCloseAccordio
 import StandardTabs from "./components/StandardTabs.vue";
 import AboveTabs from "./components/AboveTabs.vue";
 
+import ThemeProvider from "./components/ThemeProvider";
+
 export default {
   name: "App",
   components: {
@@ -73,7 +79,8 @@ export default {
     PreventCloseAccordion,
     SinglePreventCloseAccordion,
     StandardTabs,
-    AboveTabs
+    AboveTabs,
+    ThemeProvider
   },
   data() {
     return {

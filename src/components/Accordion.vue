@@ -14,6 +14,7 @@ export default {
   props: {
     stateReducer: { type: Function, required: false, default: null }
   },
+  inject: ["theme"],
   data() {
     return {
       openIndexes: [0]
