@@ -3,7 +3,7 @@ export default {
     theme: { type: String, default: "light" }
   },
   render() {
-    return this.$scopedSlots.default(this)[0];
+    return this.$slots.default[0];
   },
   provide() {
     return {

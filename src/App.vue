@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <ThemeProvider theme="dark">
-      <template slot-scope="{}">
+      <template>
         <div class="wrapper">
           <div>
             <strong>Standard</strong>

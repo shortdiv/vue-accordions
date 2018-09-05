@@ -1,14 +1,3 @@
-<template>
-  <transition name="slide-drawer">
-    <button
-      :class="{ 'open-style' : isOpen, 'dark': theme === 'dark' }"
-      ref="accordionButton"
-    >
-      <slot />
-    </button>
-  </transition>
-</template>
-
 <script>
 export default {
   name: "AccordionButton",
@@ -21,6 +10,23 @@ export default {
     this.$refs.accordionButton.onclick = () => {
       this.$emit("on-click");
     };
+  },
+  computed: {
+    classObj() {
+      return {
+        "open-style": this.isOpen,
+        dark: this.theme === "dark"
+      };
+    }
+  },
+  render() {
+    return (
+      <transition name="slide-drawer">
+        <button class={this.classObj} ref="accordionButton">
+          {this.$slots.default}
+        </button>
+      </transition>
+    );
   }
 };
 </script>
