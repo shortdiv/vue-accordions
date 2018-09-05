@@ -3,14 +3,10 @@ export default {
   name: "AccordionButton",
   props: {
     isOpen: { type: Boolean },
-    handleItemClick: { type: Function }
+    handleItemClick: { type: Function },
+    itemIndex: { type: Number }
   },
   inject: ["theme"],
-  mounted() {
-    this.$refs.accordionButton.onclick = () => {
-      this.$emit("on-click");
-    };
-  },
   computed: {
     classObj() {
       return {
@@ -22,7 +18,11 @@ export default {
   render() {
     return (
       <transition name="slide-drawer">
-        <button class={this.classObj} ref="accordionButton">
+        <button
+          class={this.classObj}
+          ref="accordionButton"
+          on-click={() => this.handleItemClick(this.itemIndex)}
+        >
           {this.$slots.default}
         </button>
       </transition>

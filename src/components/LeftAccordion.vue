@@ -14,7 +14,7 @@
           :style="{textAlign: 'left', minWidth: '80px'}"
           :isOpen="isOpen(openIndices, index)"
           :handleItemClick="handleItemClick"
-          @on-click="handleItemClick(index)"
+          :itemIndex="index"
         >
         {{ item.title }}
           <span>{{ isOpen(openIndices, index) ? '👈' : '👉'}}</span>

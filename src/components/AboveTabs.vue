@@ -19,7 +19,7 @@
             v-for="(item,index) in items" :key="item.title"
             :isOpen="isOpen(openIndices, index)"
             :handleItemClick="handleItemClick"
-            @on-click="handleItemClick(index)"
+            :itemIndex="index"
           >
             {{ item.title }}
           </AccordionButton>
