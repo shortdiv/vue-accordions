@@ -1,7 +1,7 @@
 <template>
     <Accordion
       :stateReducer="singleOpenMethod">
-      <template slot-scope="{ handleItemClick, openIndices, isOpen }">
+      <template slot="contents-are" slot-scope="{ handleItemClick, openIndices, isOpen }">
         <AccordionItem
           v-for="(item, index) in items" :key="item.title">
           <AccordionButton

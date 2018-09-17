@@ -1,6 +1,6 @@
 <template>
   <Accordion>
-    <template slot-scope="{ handleItemClick, openIndices, isOpen }">
+    <template slot="contents-are" slot-scope="{ handleItemClick, openIndices, isOpen }">
       <AccordionItem
         :style="{ gridAutoFlow: 'column' }"
         v-for="(item, index) in items" :key="item.title">
